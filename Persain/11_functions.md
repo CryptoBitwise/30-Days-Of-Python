@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 11 - Functions</h1>
+  <h1> ۳۰ روز پایتون: روز ۱۱ - توابع</h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,65 +7,65 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-<sub>Author:
-<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-<small> Second Edition: July, 2021</small>
+<sub>نویسنده:
+<a href="https://www.linkedin.com/in/asabeneh/" target="_blank">آسابنه یتایه</a><br>
+<small> ویرایش دوم: ژوئیه، ۲۰۲۱</small>
 </sub>
 
 </div>
 
-[<< Day 10](../10_Day_Loops/10_loops.md) | [Day 12 >>](../12_Day_Modules/12_modules.md)
+[<< روز ۱۰](../10_Day_Loops/10_loops.md) | [روز ۱۲ >>](../12_Day_Modules/12_modules.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 
-- [📘 Day 11](#-day-11)
-  - [Functions](#functions)
-    - [Defining a Function](#defining-a-function)
-    - [Declaring and Calling a Function](#declaring-and-calling-a-function)
-    - [Function without Parameters](#function-without-parameters)
-    - [Function Returning a Value - Part 1](#function-returning-a-value---part-1)
-    - [Function with Parameters](#function-with-parameters)
-    - [Passing Arguments with Key and Value](#passing-arguments-with-key-and-value)
-    - [Function Returning a Value - Part 2](#function-returning-a-value---part-2)
-    - [Function with Default Parameters](#function-with-default-parameters)
-    - [Arbitrary Number of Arguments](#arbitrary-number-of-arguments)
-    - [Default and Arbitrary Number of Parameters in Functions](#default-and-arbitrary-number-of-parameters-in-functions)
-    - [Function as a Parameter of Another Function](#function-as-a-parameter-of-another-function)
-  - [Testimony](#testimony)
-  - [💻 Exercises: Day 11](#-exercises-day-11)
-    - [Exercises: Level 1](#exercises-level-1)
-    - [Exercises: Level 2](#exercises-level-2)
-    - [Exercises: Level 3](#exercises-level-3)
+- [📘 روز ۱۱](#-روز-۱۱)
+  - [توابع](#توابع)
+    - [تعریف یک تابع](#تعریف-یک-تابع)
+    - [اعلام و فراخوانی یک تابع](#اعلام-و-فراخوانی-یک-تابع)
+    - [تابع بدون پارامتر](#تابع-بدون-پارامتر)
+    - [تابع بازگشت‌دهنده مقدار - بخش ۱](#تابع-بازگشت‌دهنده-مقدار---بخش-۱)
+    - [تابع با پارامترها](#تابع-با-پارامترها)
+    - [گذراندن آرگومان‌ها با کلید و مقدار](#گذراندن-آرگومان‌ها-با-کلید-و-مقدار)
+    - [تابع بازگشت‌دهنده مقدار - بخش ۲](#تابع-بازگشت‌دهنده-مقدار---بخش-۲)
+    - [تابع با پارامترهای پیش‌فرض](#تابع-با-پارامترهای-پیش‌فرض)
+    - [تعداد دلخواه آرگومان‌ها](#تعداد-دلخواه-آرگومان‌ها)
+    - [پارامترهای پیش‌فرض و تعداد دلخواه در توابع](#پارامترهای-پیش‌فرض-و-تعداد-دلخواه-در-توابع)
+    - [تابع به عنوان پارامتر تابع دیگر](#تابع-به-عنوان-پارامتر-تابع-دیگر)
+  - [شهادت](#شهادت)
+  - [💻 تمرین‌ها: روز ۱۱](#-تمرین‌ها-روز-۱۱)
+    - [تمرین‌ها: سطح ۱](#تمرین‌ها-سطح-۱)
+    - [تمرین‌ها: سطح ۲](#تمرین‌ها-سطح-۲)
+    - [تمرین‌ها: سطح ۳](#تمرین‌ها-سطح-۳)
 
-# 📘 Day 11
+# 📘 روز ۱۱
 
-## Functions
+## توابع
 
-So far we have seen many built-in Python functions. In this section, we will focus on custom functions. What is a function? Before we start making functions, let us learn what a function is and why we need them?
+تاکنون بسیاری از توابع داخلی پایتون را دیده‌ایم. در این بخش، بر روی توابع سفارشی تمرکز خواهیم کرد. تابع چیست؟ قبل از اینکه شروع به ساخت توابع کنیم، بیایید یاد بگیریم که تابع چیست و چرا به آنها نیاز داریم؟
 
-### Defining a Function
+### تعریف یک تابع
 
-A function is a reusable block of code or programming statements designed to perform a certain task. To define or declare a function, Python provides the _def_ keyword. The following is the syntax for defining a function. The function block of code is executed only if the function is called or invoked.
+تابع یک بلوک کد قابل استفاده مجدد یا دستورات برنامه‌نویسی است که برای انجام یک وظیفه خاص طراحی شده است. برای تعریف یا اعلام یک تابع، پایتون کلمه کلیدی _def_ را فراهم می‌کند. در ادامه نحو تعریف یک تابع آمده است. بلوک کد تابع تنها زمانی اجرا می‌شود که تابع فراخوانی یا احضار شود.
 
-### Declaring and Calling a Function
+### اعلام و فراخوانی یک تابع
 
-When we make a function, we call it declaring a function. When we start using the it,  we call it _calling_ or _invoking_ a function. Function can be declared with or without parameters.
+وقتی یک تابع می‌سازیم، به آن اعلام تابع می‌گوییم. وقتی شروع به استفاده از آن می‌کنیم، به آن _فراخوانی_ یا _احضار_ تابع می‌گوییم. تابع می‌تواند با یا بدون پارامتر اعلام شود.
 
 ```py
-# syntax
-# Declaring a function
+# نحو
+# اعلام یک تابع
 def function_name():
-    codes
-    codes
-# Calling a function
+    کدها
+    کدها
+# فراخوانی یک تابع
 function_name()
 ```
 
-### Function without Parameters
+### تابع بدون پارامتر
 
-Function can be declared without parameters.
+تابع می‌تواند بدون پارامتر اعلام شود.
 
-**Example:**
+**مثال:**
 
 ```py
 def generate_full_name ():
@@ -74,7 +74,7 @@ def generate_full_name ():
     space = ' '
     full_name = first_name + space + last_name
     print(full_name)
-generate_full_name () # calling a function
+generate_full_name () # فراخوانی یک تابع
 
 def add_two_numbers ():
     num_one = 2
@@ -84,9 +84,9 @@ def add_two_numbers ():
 add_two_numbers()
 ```
 
-### Function Returning a Value - Part 1
+### تابع بازگشت‌دهنده مقدار - بخش ۱
 
-Function can also return values, if a function does not have a return statement, the value of the function is None. Let us rewrite the above functions using return. From now on, we get a value from a function when we call the function and print it.
+تابع همچنین می‌تواند مقادیری را بازگرداند، اگر تابعی دستور return نداشته باشد، مقدار تابع None است. بیایید توابع بالا را با استفاده از return بازنویسی کنیم. از این به بعد، وقتی تابعی را فراخوانی و چاپ می‌کنیم، مقداری از تابع دریافت می‌کنیم.
 
 ```py
 def generate_full_name ():
@@ -105,23 +105,23 @@ def add_two_numbers ():
 print(add_two_numbers())
 ```
 
-### Function with Parameters
+### تابع با پارامترها
 
-In a function we can pass different data types(number, string, boolean, list, tuple, dictionary or set) as a parameter
+در یک تابع می‌توانیم انواع داده‌های مختلف (عدد، رشته، بولی، لیست، تاپل، دیکشنری یا مجموعه) را به عنوان پارامتر بگذرانیم.
 
-- Single Parameter: If our function takes a parameter we should call our function with an argument
+- پارامتر تکی: اگر تابع ما پارامتری بگیرد، باید تابع را با یک آرگومان فراخوانی کنیم.
 
 ```py
-  # syntax
-  # Declaring a function
+  # نحو
+  # اعلام یک تابع
   def function_name(parameter):
-    codes
-    codes
-  # Calling function
+    کدها
+    کدها
+  # فراخوانی تابع
   print(function_name(argument))
 ```
 
-**Example:**
+**مثال:**
 
 ```py
 def greetings (name):
@@ -154,25 +154,25 @@ print(sum_of_numbers(10)) # 55
 print(sum_of_numbers(100)) # 5050
 ```
 
-- Two Parameter: A function may or may not have a parameter or parameters. A function may also have two or more parameters. If our function takes parameters we should call it with arguments. Let us check a function with two parameters:
+- دو پارامتر: یک تابع ممکن است پارامتر یا پارامترهایی داشته باشد یا نداشته باشد. یک تابع همچنین ممکن است دو یا چند پارامتر داشته باشد. اگر تابع ما پارامترهایی بگیرد، باید آن را با آرگومان‌ها فراخوانی کنیم. بیایید یک تابع با دو پارامتر بررسی کنیم:
 
 ```py
-  # syntax
-  # Declaring a function
+  # نحو
+  # اعلام یک تابع
   def function_name(para1, para2):
-    codes
-    codes
-  # Calling function
+    کدها
+    کدها
+  # فراخوانی تابع
   print(function_name(arg1, arg2))
 ```
 
-**Example:**
+**مثال:**
 
 ```py
 def generate_full_name (first_name, last_name):
     space = ' '
-      full_name = first_name + space + last_name
-      return full_name
+    full_name = first_name + space + last_name
+    return full_name
 print('Full Name: ', generate_full_name('Asabeneh','Yetayeh'))
 
 def sum_two_numbers (num_one, num_two):
@@ -187,26 +187,26 @@ def calculate_age (current_year, birth_year):
 print('Age: ', calculate_age(2021, 1819))
 
 def weight_of_object (mass, gravity):
-    weight = str(mass * gravity)+ ' N' # the value has to be changed to a string first
+    weight = str(mass * gravity)+ ' N' # مقدار باید ابتدا به رشته تبدیل شود
     return weight
 print('Weight of an object in Newtons: ', weight_of_object(100, 9.81))
 ```
 
-### Passing Arguments with Key and Value
+### گذراندن آرگومان‌ها با کلید و مقدار
 
-If we pass the arguments with key and value, the order of the arguments does not matter.
+اگر آرگومان‌ها را با کلید و مقدار بگذرانیم، ترتیب آرگومان‌ها اهمیتی ندارد.
 
 ```py
-# syntax
-# Declaring a function
+# نحو
+# اعلام یک تابع
 def function_name(para1, para2):
-    codes
-    codes
-# Calling function
-print(function_name(para1 = 'John', para2 = 'Doe')) # the order of arguments does not matter here
+    کدها
+    کدها
+# فراخوانی تابع
+print(function_name(para1 = 'John', para2 = 'Doe')) # ترتیب آرگومان‌ها اینجا اهمیتی ندارد
 ```
 
-**Example:**
+**مثال:**
 
 ```py
 def print_fullname(firstname, lastname):
@@ -218,15 +218,15 @@ print(print_fullname(firstname = 'Asabeneh', lastname = 'Yetayeh'))
 def add_two_numbers (num1, num2):
     total = num1 + num2
     print(total)
-print(add_two_numbers(num2 = 3, num1 = 2)) # Order does not matter
+print(add_two_numbers(num2 = 3, num1 = 2)) # ترتیب اهمیتی ندارد
 ```
 
-### Function Returning a Value - Part 2
+### تابع بازگشت‌دهنده مقدار - بخش ۲
 
-If we do not return a value with a function, then our function is returning _None_ by default. To return a value with a function we use the keyword _return_ followed by the variable we are returning. We can return any kind of data types from a function.
+اگر با یک تابع مقداری برنگردانیم، تابع ما به طور پیش‌فرض _None_ را برمی‌گرداند. برای بازگرداندن مقداری با یک تابع، از کلمه کلیدی _return_ به دنبال متغیری که برمی‌گردانیم استفاده می‌کنیم. می‌توانیم هر نوع داده‌ای را از یک تابع برگردانیم.
 
-- Returning a string:
-**Example:**
+- بازگشت یک رشته:
+**مثال:**
 
 ```py
 def print_name(firstname):
@@ -240,9 +240,9 @@ def print_full_name(firstname, lastname):
 print_full_name(firstname='Asabeneh', lastname='Yetayeh')
 ```
 
-- Returning a number:
+- بازگشت یک عدد:
 
-**Example:**
+**مثال:**
 
 ```py
 def add_two_numbers (num1, num2):
@@ -256,21 +256,21 @@ def calculate_age (current_year, birth_year):
 print('Age: ', calculate_age(2019, 1819))
 ```
 
-- Returning a boolean:
-  **Example:**
+- بازگشت یک بولی:
+  **مثال:**
 
 ```py
 def is_even (n):
     if n % 2 == 0:
         print('even')
-        return True    # return stops further execution of the function, similar to break 
+        return True    # return اجرای بیشتر تابع را متوقف می‌کند، مشابه break 
     return False
 print(is_even(10)) # True
 print(is_even(7)) # False
 ```
 
-- Returning a list:
-  **Example:**
+- بازگشت یک لیست:
+  **مثال:**
 
 ```py
 def find_even_numbers(n):
@@ -282,22 +282,22 @@ def find_even_numbers(n):
 print(find_even_numbers(10))
 ```
 
-### Function with Default Parameters
+### تابع با پارامترهای پیش‌فرض
 
-Sometimes we pass default values to parameters, when we invoke the function. If we do not pass arguments when calling the function, their default values will be used.
+گاهی اوقات مقادیر پیش‌فرض را به پارامترها می‌گذرانیم، وقتی تابع را احضار می‌کنیم. اگر آرگومان‌هایی را هنگام فراخوانی تابع نگذرانیم، مقادیر پیش‌فرض آنها استفاده خواهد شد.
 
 ```py
-# syntax
-# Declaring a function
+# نحو
+# اعلام یک تابع
 def function_name(param = value):
-    codes
-    codes
-# Calling function
+    کدها
+    کدها
+# فراخوانی تابع
 function_name()
 function_name(arg)
 ```
 
-**Example:**
+**مثال:**
 
 ```py
 def greetings (name = 'Peter'):
@@ -320,38 +320,38 @@ def calculate_age (birth_year,current_year = 2021):
 print('Age: ', calculate_age(1821))
 
 def weight_of_object (mass, gravity = 9.81):
-    weight = str(mass * gravity)+ ' N' # the value has to be changed to string first
+    weight = str(mass * gravity)+ ' N' # مقدار باید ابتدا به رشته تبدیل شود
     return weight
-print('Weight of an object in Newtons: ', weight_of_object(100)) # 9.81 - average gravity on Earth's surface
-print('Weight of an object in Newtons: ', weight_of_object(100, 1.62)) # gravity on the surface of the Moon
+print('Weight of an object in Newtons: ', weight_of_object(100)) # 9.81 - میانگین گرانش روی سطح زمین
+print('Weight of an object in Newtons: ', weight_of_object(100, 1.62)) # گرانش روی سطح ماه
 ```
 
-### Arbitrary Number of Arguments
+### تعداد دلخواه آرگومان‌ها
 
-If we do not know the number of arguments we pass to our function, we can create a function which can take arbitrary number of arguments by adding \* before the parameter name.
+اگر تعداد آرگومان‌هایی که به تابع خود می‌گذرانیم را ندانیم، می‌توانیم تابعی ایجاد کنیم که تعداد دلخواهی آرگومان را بگیرد با اضافه کردن \* قبل از نام پارامتر.
 
 ```py
-# syntax
-# Declaring a function
+# نحو
+# اعلام یک تابع
 def function_name(*args):
-    codes
-    codes
-# Calling function
+    کدها
+    کدها
+# فراخوانی تابع
 function_name(param1, param2, param3,..)
 ```
 
-**Example:**
+**مثال:**
 
 ```py
 def sum_all_nums(*nums):
     total = 0
     for num in nums:
-        total += num     # same as total = total + num 
+        total += num     # همان total = total + num 
     return total
 print(sum_all_nums(2, 3, 5)) # 10
 ```
 
-### Default and Arbitrary Number of Parameters in Functions
+### پارامترهای پیش‌فرض و تعداد دلخواه در توابع
 
 ```py
 def generate_groups (team,*args):
@@ -361,10 +361,10 @@ def generate_groups (team,*args):
 print(generate_groups('Team-1','Asabeneh','Brook','David','Eyob'))
 ```
 
-### Function as a Parameter of Another Function
+### تابع به عنوان پارامتر تابع دیگر
 
 ```py
-#You can pass functions around as parameters
+# می‌توانید توابع را به عنوان پارامتر بگذرانید
 def square_number (n):
     return n * n
 def do_something(f, x):
@@ -372,25 +372,25 @@ def do_something(f, x):
 print(do_something(square_number, 3)) # 27
 ```
 
-🌕 You achieved quite a lot so far.  Keep going! You have just completed day 11 challenges and you are 11 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+🌕 شما تا اینجا دستاوردهای زیادی داشته‌اید. ادامه دهید! شما چالش‌های روز ۱۱ را به پایان رساندید و ۱۱ گام جلوتر در مسیر بزرگی هستید. حالا چند تمرین برای مغز و عضلاتتان انجام دهید.
 
-## Testimony
+## شهادت
 
-Now it is time to express your thoughts about the Author and 30DaysOfPython. You can leave your testimonial on this [link](https://testimonial-s3sw.onrender.com/)
+حالا زمان آن است که افکار خود را در مورد نویسنده و ۳۰روزپایتون بیان کنید. می‌توانید شهادت خود را در این [لینک](https://testimonial-s3sw.onrender.com/) بگذارید.
 
-## 💻 Exercises: Day 11
+## 💻 تمرین‌ها: روز ۱۱
 
-### Exercises: Level 1
+### تمرین‌ها: سطح ۱
 
-1. Declare a function _add_two_numbers_. It takes two parameters and it returns a sum.
-2. Area of a circle is calculated as follows: area = π x r x r. Write a function that calculates _area_of_circle_.
-3. Write a function called add_all_nums which takes arbitrary number of arguments and sums all the arguments. Check if all the list items are number types. If not do give a reasonable feedback.
-4. Temperature in °C can be converted to °F using this formula: °F = (°C x 9/5) + 32. Write a function which converts °C to °F, _convert_celsius_to-fahrenheit_.
-5. Write a function called check-season, it takes a month parameter and returns the season: Autumn, Winter, Spring or Summer.
-6. Write a function called calculate_slope which return the slope of a linear equation
-7. Quadratic equation is calculated as follows: ax² + bx + c = 0. Write a function which calculates solution set of a quadratic equation, _solve_quadratic_eqn_.
-8. Declare a function named print_list. It takes a list as a parameter and it prints out each element of the list.
-9. Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array (use loops).
+۱. تابعی به نام _add_two_numbers_ اعلام کنید. دو پارامتر می‌گیرد و مجموع را برمی‌گرداند.
+۲. مساحت دایره به صورت زیر محاسبه می‌شود: area = π x r x r. تابعی بنویسید که _area_of_circle_ را محاسبه کند.
+۳. تابعی به نام add_all_nums بنویسید که تعداد دلخواهی آرگومان می‌گیرد و همه آرگومان‌ها را جمع می‌کند. بررسی کنید که آیا همه آیتم‌های لیست از نوع عدد هستند. اگر نه، بازخورد مناسبی بدهید.
+۴. دما در °C می‌تواند با استفاده از این فرمول به °F تبدیل شود: °F = (°C x 9/5) + 32. تابعی بنویسید که °C را به °F تبدیل کند، _convert_celsius_to-fahrenheit_.
+۵. تابعی به نام check-season بنویسید، که یک پارامتر ماه می‌گیرد و فصل را برمی‌گرداند: پاییز، زمستان، بهار یا تابستان.
+۶. تابعی به نام calculate_slope بنویسید که شیب یک معادله خطی را برمی‌گرداند.
+۷. معادله درجه دوم به صورت زیر محاسبه می‌شود: ax² + bx + c = ۰. تابعی بنویسید که مجموعه راه‌حل یک معادله درجه دوم را محاسبه کند، _solve_quadratic_eqn_.
+۸. تابعی به نام print_list اعلام کنید. یک لیست را به عنوان پارامتر می‌گیرد و هر عنصر لیست را چاپ می‌کند.
+۹. تابعی به نام reverse_list اعلام کنید. یک آرایه را به عنوان پارامتر می‌گیرد و معکوس آرایه را برمی‌گرداند (از حلقه‌ها استفاده کنید).
 
 ```py
 print(reverse_list([1, 2, 3, 4, 5]))
@@ -399,8 +399,8 @@ print(reverse_list1(["A", "B", "C"]))
 # ["C", "B", "A"]
 ```
 
-10. Declare a function named capitalize_list_items. It takes a list as a parameter and it returns a capitalized list of items
-11. Declare a function named add_item. It takes a list and an item parameters. It returns a list with the item added at the end.
+۱۰. تابعی به نام capitalize_list_items اعلام کنید. یک لیست را به عنوان پارامتر می‌گیرد و لیستی از آیتم‌های بزرگ‌نوشته‌شده را برمی‌گرداند.
+۱۱. تابعی به نام add_item اعلام کنید. یک لیست و یک پارامتر آیتم می‌گیرد. لیستی با آیتم اضافه‌شده در انتها برمی‌گرداند.
 
 ```py
 food_staff = ['Potato', 'Tomato', 'Mango', 'Milk']
@@ -409,7 +409,7 @@ numbers = [2, 3, 7, 9]
 print(add_item(numbers, 5))      [2, 3, 7, 9, 5]
 ```
 
-12. Declare a function named remove_item. It takes a list and an item parameters. It returns a list with the item removed from it.
+۱۲. تابعی به نام remove_item اعلام کنید. یک لیست و یک پارامتر آیتم می‌گیرد. لیستی با آیتم حذف‌شده از آن برمی‌گرداند.
 
 ```py
 food_staff = ['Potato', 'Tomato', 'Mango', 'Milk']
@@ -418,7 +418,7 @@ numbers = [2, 3, 7, 9]
 print(remove_item(numbers, 3))  # [2, 7, 9]
 ```
 
-13. Declare a function named sum_of_numbers. It takes a number parameter and it adds all the numbers in that range.
+۱۳. تابعی به نام sum_of_numbers اعلام کنید. یک پارامتر عدد می‌گیرد و همه اعداد در آن محدوده را جمع می‌کند.
 
 ```py
 print(sum_of_numbers(5))  # 15
@@ -426,34 +426,34 @@ print(sum_of_numbers(10)) # 55
 print(sum_of_numbers(100)) # 5050
 ```
 
-14. Declare a function named sum_of_odds. It takes a number parameter and it adds all the odd numbers in that range.
-15. Declare a function named sum_of_even. It takes a number parameter and it adds all the even numbers in that - range.
+۱۴. تابعی به نام sum_of_odds اعلام کنید. یک پارامتر عدد می‌گیرد و همه اعداد فرد در آن محدوده را جمع می‌کند.
+۱۵. تابعی به نام sum_of_even اعلام کنید. یک پارامتر عدد می‌گیرد و همه اعداد زوج در آن محدوده را جمع می‌کند.
 
-### Exercises: Level 2
+### تمرین‌ها: سطح ۲
 
-1. Declare a function named evens_and_odds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
+۱. تابعی به نام evens_and_odds اعلام کنید. یک عدد صحیح مثبت را به عنوان پارامتر می‌گیرد و تعداد زوج‌ها و فردها در عدد را شمارش می‌کند.
 
 ```py
     print(evens_and_odds(100))
-    # The number of odds are 50.
-    # The number of evens are 51.
+    # تعداد فردها ۵۰ است.
+    # تعداد زوج‌ها ۵۱ است.
 ```
 
-1. Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
-1. Call your function _is_empty_, it takes a parameter and it checks if it is empty or not
-1. Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std (standard deviation).
+۱. تابع خود را factorial بنامید، یک عدد صحیح را به عنوان پارامتر می‌گیرد و فاکتوریل عدد را برمی‌گرداند.
+۱. تابع خود را _is_empty_ بنامید، یک پارامتر می‌گیرد و بررسی می‌کند که آیا خالی است یا نه.
+۱. توابع مختلفی بنویسید که لیست‌ها را می‌گیرند. آنها باید میانگین، میانه، مد، دامنه، واریانس، انحراف استاندارد را محاسبه کنند.
 
-### Exercises: Level 3
+### تمرین‌ها: سطح ۳
 
-1. Write a function called is_prime, which checks if a number is prime.
-1. Write a functions which checks if all items are unique in the list.
-1. Write a function which checks if all the items of the list are of the same data type.
-1. Write a function which check if provided variable is a valid python variable
-1. Go to the data folder and access the countries-data.py file.
+۱. تابعی به نام is_prime بنویسید، که بررسی می‌کند آیا یک عدد اول است.
+۱. تابعی بنویسید که بررسی می‌کند آیا همه آیتم‌ها در لیست منحصر به فرد هستند.
+۱. تابعی بنویسید که بررسی می‌کند آیا همه آیتم‌های لیست از یک نوع داده هستند.
+۱. تابعی بنویسید که بررسی می‌کند آیا متغیر ارائه‌شده یک متغیر معتبر پایتون است.
+۱. به پوشه data بروید و به فایل countries-data.py دسترسی پیدا کنید.
 
-- Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
-- Create a function called the most_populated_countries. It should return 10 or 20 most populated countries in descending order.
+- تابعی به نام most_spoken_languages در جهان ایجاد کنید. باید ۱۰ یا ۲۰ زبان پرگویش جهان را به ترتیب نزولی برگرداند.
+- تابعی به نام most_populated_countries ایجاد کنید. باید ۱۰ یا ۲۰ کشور پرجمعیت را به ترتیب نزولی برگرداند.
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 تبریک ! 🎉
 
-[<< Day 10](../10_Day_Loops/10_loops.md) | [Day 12 >>](../12_Day_Modules/12_modules.md)
+[<< روز ۱۰](../10_Day_Loops/10_loops.md) | [روز ۱۲ >>](../12_Day_Modules/12_modules.md)
