@@ -1,5 +1,5 @@
 <div align="center">
-  <h1> 30 Days Of Python: Day 26 - Python for web </h1>
+  <h1> ۳۰ روز با پایتون: روز ۲۶ - پایتون برای وب </h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
   <img src="https://img.shields.io/badge/style--5eba00.svg?label=LinkedIn&logo=linkedin&style=social">
   </a>
@@ -7,50 +7,47 @@
   <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/asabeneh?style=social">
   </a>
 
-  <sub>Author:
+  <sub>نویسنده:
   <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
-  <small>Second Edition: July, 2021</small>
+  <small>ویرایش دوم: جولای، ۲۰۲۱</small>
   </sub>
 </div>
 </div>
 
-[<< Day 25 ](../25_Day_Pandas/25_pandas.md) | [Day 27 >>](../27_Day_Python_with_mongodb/27_python_with_mongodb.md)
+[>> روز ۲۵ ](../25_Day_Pandas/25_pandas.md) | [روز ۲۷ <<](../27_Day_Python_with_mongodb/27_python_with_mongodb.md)
 
 ![30DaysOfPython](../images/30DaysOfPython_banner3@2x.png)
 
-- [📘 Day 26](#-day-26)
-  - [Python for Web](#python-for-web)
+- [📘 روز ۲۶](#-روز-۲۶)
+  - [پایتون برای وب](#پایتون-برای-وب)
     - [Flask](#flask)
-      - [Folder structure](#folder-structure)
-    - [Setting up your project directory](#setting-up-your-project-directory)
-    - [Creating routes](#creating-routes)
-    - [Creating templates](#creating-templates)
-    - [Python Script](#python-script)
-    - [Navigation](#navigation)
-    - [Creating a layout](#creating-a-layout)
-      - [Serving Static File](#serving-static-file)
-    - [Deployment](#deployment)
-      - [Creating Heroku account](#creating-heroku-account)
-      - [Login to Heroku](#login-to-heroku)
-      - [Create requirements and Procfile](#create-requirements-and-procfile)
-      - [Pushing project to heroku](#pushing-project-to-heroku)
-  - [Exercises: Day 26](#exercises-day-26)
+      - [ساختار پوشه](#ساختار-پوشه)
+    - [راه‌اندازی دایرکتوری پروژه](#راهاندازی-دایرکتوری-پروژه)
+    - [ایجاد templateها](#ایجاد-templateها)
+    - [اسکریپت پایتون](#اسکریپت-پایتون)
+    - [ناوبری (Navigation)](#ناوبری-navigation)
+    - [استقرار (Deployment)](#استقرار-deployment)
+      - [ایجاد حساب کاربری Heroku](#ایجاد-حساب-کاربری-heroku)
+      - [ورود به Heroku](#ورود-به-heroku)
+      - [ایجاد requirements و Procfile](#ایجاد-requirements-و-procfile)
+      - [ارسال پروژه به heroku](#ارسال-پروژه-به-heroku)
+  - [تمرینات: روز ۲۶](#تمرینات-روز-۲۶)
 
-# 📘 Day 26
+# 📘 روز ۲۶
 
-## Python for Web
+## پایتون برای وب
 
-Python is a general purpose programming language and it can be used for many places. In this section, we will see how we use Python for the web. There are many Python web frame works. Django and Flask are the most popular ones. Today, we will see how to use Flask for web development.
+پایتون یک زبان برنامه‌نویسی همه‌منظوره است و می‌توان از آن در جاهای زیادی استفاده کرد. در این بخش، خواهیم دید که چگونه از پایتون برای وب استفاده می‌کنیم. فریمورک‌های وب پایتون زیادی وجود دارند. Django و Flask محبوب‌ترین آن‌ها هستند. امروز، خواهیم دید که چگونه از Flask برای توسعه وب استفاده کنیم.
 
 ### Flask
 
-Flask is a web development framework written in Python. Flask uses Jinja2 template engine. Flask can be also used with other modern front libraries such as React.
+Flask یک فریمورک توسعه وب است که با پایتون نوشته شده است. Flask از موتور قالب Jinja2 استفاده می‌کند. Flask همچنین می‌تواند با سایر کتابخانه‌های مدرن فرانت‌اند مانند React استفاده شود.
 
-If you did not install the virtualenv package yet install it first. Virtual environment will allows to isolate project dependencies from the local machine dependencies.
+اگر هنوز بسته virtualenv را نصب نکرده‌اید، ابتدا آن را نصب کنید. محیط مجازی به شما امکان می‌دهد تا وابستگی‌های پروژه را از وابستگی‌های ماشین محلی جدا کنید.
 
-#### Folder structure
+#### ساختار پوشه
 
-After completing all the step, your project file structure should look like this:
+پس از تکمیل تمام مراحل، ساختار فایل پروژه شما باید به این شکل باشد:
 
 ```sh
 
@@ -70,17 +67,17 @@ After completing all the step, your project file structure should look like this
     └── result.html
 ```
 
-### Setting up your project directory
+### راه‌اندازی دایرکتوری پروژه
 
-Follow the following steps to get started with Flask.
+برای شروع کار با Flask مراحل زیر را دنبال کنید.
 
-Step 1: install virtualenv using the following command.
+مرحله ۱: virtualenv را با استفاده از دستور زیر نصب کنید.
 
 ```sh
 pip install virtualenv
 ```
 
-Step 2:
+مرحله ۲:
 
 ```sh
 asabeneh@Asabeneh:~/Desktop$ mkdir python_for_web
@@ -96,25 +93,24 @@ itsdangerous==1.1.0
 Jinja2==2.10.3
 MarkupSafe==1.1.1
 Werkzeug==0.16.0
-(env) asabeneh@Asabeneh:~/Desktop/python_for_web$
-```
+(env) asabeneh@Asabeneh:~/Desktop/python_for_web$```
 
-We created a project director named python_for_web. Inside the project we created a virtual environment *venv* which could be any name but I prefer to call it _venv_. Then we activated the virtual environment. We used pip freeze to check the installed packages in the project directory. The result of pip freeze was empty because a package was not installed yet.
+ما یک دایرکتوری پروژه به نام python_for_web ایجاد کردیم. داخل پروژه یک محیط مجازی *venv* ایجاد کردیم که می‌توانست هر نامی داشته باشد اما من ترجیح می‌دهم آن را _venv_ بنامم. سپس محیط مجازی را فعال کردیم. از pip freeze برای بررسی بسته‌های نصب شده در دایرکتوری پروژه استفاده کردیم. نتیجه pip freeze خالی بود زیرا هنوز بسته‌ای نصب نشده بود.
 
-Now, let's create app.py file in the project directory and write the following code. The app.py file will be the main file in the project. The following code has flask module, os module.
+حالا، بیایید فایل app.py را در دایرکتوری پروژه ایجاد کنیم و کد زیر را بنویسیم. فایل app.py فایل اصلی پروژه خواهد بود. کد زیر دارای ماژول flask و ماژول os است.
 
-### Creating routes
+### ایجاد routeها
 
-The home route.
+route صفحه اصلی.
 
 ```py
-# let's import the flask
+# فلاسک را وارد می‌کنیم
 from flask import Flask
-import os # importing operating system module
+import os # وارد کردن ماژول سیستم عامل
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # این دکوراتور route صفحه اصلی را ایجاد می‌کند
 def home ():
     return '<h1>Welcome</h1>'
 
@@ -124,27 +120,27 @@ def about():
 
 
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # برای استقرار از environ استفاده می‌کنیم
+    # تا هم برای تولید و هم برای توسعه کار کند
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-To run the flask application, write python app.py in the main flask application directory.
+برای اجرای اپلیکیشن فلسک، `python app.py` را در دایرکتوری اصلی اپلیکیشن فلسک بنویسید.
 
-After you run _python app.py_ check local host 5000.
+پس از اجرای `_python app.py_`، لوکال هاست ۵۰۰۰ را بررسی کنید.
 
-Let us add additional route.
-Creating about route
+بیایید یک route دیگر اضافه کنیم.
+ایجاد route درباره ما
 
 ```py
-# let's import the flask
+# فلاسک را وارد می‌کنیم
 from flask import Flask
-import os # importing operating system module
+import os # وارد کردن ماژول سیستم عامل
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # این دکوراتور route صفحه اصلی را ایجاد می‌کند
 def home ():
     return '<h1>Welcome</h1>'
 
@@ -153,17 +149,17 @@ def about():
     return '<h1>About us</h1>'
 
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # برای استقرار از environ استفاده می‌کنیم
+    # تا هم برای تولید و هم برای توسعه کار کند
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-Now, we added the about route in the above code. How about if we want to render an HTML file instead of string? It is possible to render HTML file using the function *render_templae*. Let us create a folder called templates and create home.html and about.html in the project directory. Let us also import the *render_template* function from flask.
+اکنون، ما route `about` را در کد بالا اضافه کردیم. اگر بخواهیم به جای رشته، یک فایل HTML را رندر کنیم چطور؟ امکان رندر کردن فایل HTML با استفاده از تابع *render_template* وجود دارد. بیایید یک پوشه به نام templates ایجاد کنیم و home.html و about.html را در دایرکتوری پروژه ایجاد کنیم. همچنین بیایید تابع *render_template* را از flask وارد کنیم.
 
-### Creating templates
+### ایجاد templateها
 
-Create the HTML files inside templates folder.
+فایل‌های HTML را داخل پوشه templates ایجاد کنید.
 
 home.html
 
@@ -173,11 +169,11 @@ home.html
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>صفحه اصلی</title>
   </head>
 
   <body>
-    <h1>Welcome Home</h1>
+    <h1>به صفحه اصلی خوش آمدید</h1>
   </body>
 </html>
 ```
@@ -190,27 +186,27 @@ about.html
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About</title>
+    <title>درباره ما</title>
   </head>
 
   <body>
-    <h1>About Us</h1>
+    <h1>درباره ما</h1>
   </body>
 </html>
 ```
 
-### Python Script
+### اسکریپت پایتون
 
 app.py
 
 ```py
-# let's import the flask
+# فلاسک را وارد می‌کنیم
 from flask import Flask, render_template
-import os # importing operating system module
+import os # وارد کردن ماژول سیستم عامل
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # این دکوراتور route صفحه اصلی را ایجاد می‌کند
 def home ():
     return render_template('home.html')
 
@@ -219,35 +215,35 @@ def about():
     return render_template('about.html')
 
 if __name__ == '__main__':
-    # for deployment we use the environ
-    # to make it work for both production and development
+    # برای استقرار از environ استفاده می‌کنیم
+    # تا هم برای تولید و هم برای توسعه کار کند
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-As you can see to go to different pages or to navigate we need a navigation. Let's add a link to each page or let's create a layout which we use to every page.
+همانطور که می‌بینید برای رفتن به صفحات مختلف یا برای ناوبری به یک نویگیشن نیاز داریم. بیایید به هر صفحه یک لینک اضافه کنیم یا یک layout ایجاد کنیم که برای هر صفحه از آن استفاده کنیم.
 
-### Navigation
+### ناوبری (Navigation)
 
 ```html
 <ul>
-  <li><a href="/">Home</a></li>
-  <li><a href="/about">About</a></li>
+  <li><a href="/">صفحه اصلی</a></li>
+  <li><a href="/about">درباره ما</a></li>
 </ul>
 ```
 
-Now, we can navigate between the pages using the above link. Let us create additional page which handle form data. You can call it any name, I like to call it post.html.
+اکنون، می‌توانیم با استفاده از لینک بالا بین صفحات جابجا شویم. بیایید یک صفحه اضافی ایجاد کنیم که داده‌های فرم را مدیریت کند. می‌توانید هر نامی برای آن بگذارید، من دوست دارم آن را post.html بنامم.
 
-We can inject data to the HTML files using Jinja2 template engine.
+ما می‌توانیم با استفاده از موتور قالب Jinja2 داده‌ها را به فایل‌های HTML تزریق کنیم.
 
 ```py
-# let's import the flask
+# فلاسک را وارد می‌کنیم
 from flask import Flask, render_template, request, redirect, url_for
-import os # importing operating system module
+import os # وارد کردن ماژول سیستم عامل
 
 app = Flask(__name__)
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # این دکوراتور route صفحه اصلی را ایجاد می‌کند
 def home ():
     techs = ['HTML', 'CSS', 'Flask', 'Python']
     name = '30 Days Of Python Programming'
@@ -265,13 +261,13 @@ def post():
 
 
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # برای استقرار
+    # تا هم برای تولید و هم برای توسعه کار کند
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-Let's see the templates too:
+بیایید templateها را هم ببینیم:
 
 home.html
 
@@ -281,15 +277,15 @@ home.html
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>صفحه اصلی</title>
   </head>
 
   <body>
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/">صفحه اصلی</a></li>
+      <li><a href="/about">درباره ما</a></li>
     </ul>
-    <h1>Welcome to {{name}}</h1>
+    <h1>به {{name}} خوش آمدید</h1>
      <ul>
     {% for tech in techs %}
       <li>{{tech}}</li>
@@ -307,28 +303,27 @@ about.html
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
+    <title>درباره ما</title>
   </head>
 
   <body>
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/">صفحه اصلی</a></li>
+      <li><a href="/about">درباره ما</a></li>
     </ul>
-    <h1>About Us</h1>
+    <h1>درباره ما</h1>
     <h2>{{name}}</h2>
   </body>
-</html>
-```
+</html>```
 
-### Creating a layout
+### ایجاد یک layout
 
-In the template files, there are lots of repeated codes, we can write a layout and we can remove the repetition. Let's create layout.html inside the templates folder.
-After we create the layout we will import to every file.
+در فایل‌های template، کدهای تکراری زیادی وجود دارد، می‌توانیم یک layout بنویسیم و تکرار را حذف کنیم. بیایید layout.html را داخل پوشه templates ایجاد کنیم.
+بعد از ایجاد layout، آن را به هر فایل وارد خواهیم کرد.
 
-#### Serving Static File
+#### ارائه فایل استاتیک
 
-Create a static folder in your project directory. Inside the static folder create CSS or styles folder and create a CSS stylesheet. We use the *url_for* module to serve the static file. 
+یک پوشه static در دایرکتوری پروژه خود ایجاد کنید. داخل پوشه static یک پوشه CSS یا styles ایجاد کنید و یک شیوه نامه CSS ایجاد کنید. ما از ماژول *url_for* برای ارائه فایل استاتیک استفاده می‌کنیم.
 
 layout.html
 
@@ -347,9 +342,9 @@ layout.html
       href="{{ url_for('static', filename='css/main.css') }}"
     />
     {% if title %}
-    <title>30 Days of Python - {{ title}}</title>
+    <title>30 روز با پایتون - {{ title}}</title>
     {% else %}
-    <title>30 Days of Python</title>
+    <title>30 روز با پایتون</title>
     {% endif %}
   </head>
 
@@ -361,14 +356,14 @@ layout.html
         </div>
         <ul class="nav-lists">
           <li class="nav-list">
-            <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
+            <a class="nav-link active" href="{{ url_for('home') }}">صفحه اصلی</a>
           </li>
           <li class="nav-list">
-            <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+            <a class="nav-link active" href="{{ url_for('about') }}">درباره ما</a>
           </li>
           <li class="nav-list">
             <a class="nav-link active" href="{{ url_for('post') }}"
-              >Text Analyzer</a
+              >تحلیلگر متن</a
             >
           </li>
         </ul>
@@ -381,18 +376,18 @@ layout.html
 </html>
 ```
 
-Now, lets remove all the repeated code in the other template files and import the layout.html. The href is using _url_for_ function with the name of the route function to connect each navigation route.
+حالا، بیایید تمام کدهای تکراری را در سایر فایل‌های template حذف کنیم و layout.html را وارد کنیم. href از تابع _url_for_ با نام تابع route برای اتصال هر route ناوبری استفاده می‌کند.
 
 home.html
 
 ```html
 {% extends 'layout.html' %} {% block content %}
 <div class="container">
-  <h1>Welcome to {{name}}</h1>
+  <h1>به {{name}} خوش آمدید</h1>
   <p>
-    This application clean texts and analyse the number of word, characters and
-    most frequent words in the text. Check it out by click text analyzer at the
-    menu. You need the following technologies to build this web application:
+    این اپلیکیشن متون را پاکسازی کرده و تعداد کلمات، کاراکترها و
+    پرتکرارترین کلمات در متن را تحلیل می‌کند. با کلیک بر روی تحلیلگر متن در
+    منو آن را امتحان کنید. برای ساخت این اپلیکیشن وب به تکنولوژی‌های زیر نیاز دارید:
   </p>
   <ul class="tech-lists">
     {% for tech in techs %}
@@ -410,10 +405,10 @@ about.html
 ```html
 {% extends 'layout.html' %} {% block content %}
 <div class="container">
-  <h1>About {{name}}</h1>
+  <h1>درباره {{name}}</h1>
   <p>
-    This is a 30 days of python programming challenge. If you have been coding
-    this far, you are awesome. Congratulations for the job well done!
+    این یک چالش ۳۰ روزه برنامه‌نویسی پایتون است. اگر تا اینجا کدنویسی
+    کرده‌اید، شما عالی هستید. برای کار خوب انجام شده تبریک می‌گویم!
   </p>
 </div>
 {% endblock %}
@@ -424,13 +419,13 @@ post.html
 ```html
 {% extends 'layout.html' %} {% block content %}
 <div class="container">
-  <h1>Text Analyzer</h1>
+  <h1>تحلیلگر متن</h1>
   <form action="https://thirtydaysofpython-v1.herokuapp.com/post" method="POST">
     <div>
       <textarea rows="25" name="content" autofocus></textarea>
     </div>
     <div>
-      <input type="submit" class="btn" value="Process Text" />
+      <input type="submit" class="btn" value="پردازش متن" />
     </div>
   </form>
 </div>
@@ -438,23 +433,23 @@ post.html
 {% endblock %}
 ```
 
-Request methods, there are different request methods(GET, POST, PUT, DELETE) are the common request methods which allow us to do CRUD(Create, Read, Update, Delete) operation.
+متدهای درخواست، متدهای درخواست مختلفی وجود دارند (GET، POST، PUT، DELETE) که متدهای درخواست رایجی هستند و به ما امکان انجام عملیات CRUD (ایجاد، خواندن، به‌روزرسانی، حذف) را می‌دهند.
 
-In the post, route we will use GET and POST method alternative depending on the type of request, check how it looks in the code below. The request method is a function to handle request methods and also to access form data.
+در route `post`، بسته به نوع درخواست، از متدهای GET و POST به صورت جایگزین استفاده خواهیم کرد، ببینید در کد زیر چگونه به نظر می‌رسد. متد request یک تابع برای مدیریت متدهای درخواست و همچنین دسترسی به داده‌های فرم است.
 app.py
 
 ```py
-# let's import the flask
+# فلاسک را وارد می‌کنیم
 from flask import Flask, render_template, request, redirect, url_for
-import os # importing operating system module
+import os # وارد کردن ماژول سیستم عامل
 
 app = Flask(__name__)
-# to stop caching static file
+# برای جلوگیری از کش شدن فایل استاتیک
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 
 
-@app.route('/') # this decorator create the home route
+@app.route('/') # این دکوراتور route صفحه اصلی را ایجاد می‌کند
 def home ():
     techs = ['HTML', 'CSS', 'Flask', 'Python']
     name = '30 Days Of Python Programming'
@@ -480,32 +475,32 @@ def post():
         return redirect(url_for('result'))
 
 if __name__ == '__main__':
-    # for deployment
-    # to make it work for both production and development
+    # برای استقرار
+    # تا هم برای تولید و هم برای توسعه کار کند
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
 ```
 
-So far, we have seen how to use template and how to inject data to template, how to a common layout.
-Now, lets handle static file. Create a folder called static in the project director and create a folder called css. Inside css folder create main.css. Your main. css file will be linked to the layout.html.
+تا اینجا، دیدیم که چگونه از template استفاده کنیم و چگونه داده‌ها را به template تزریق کنیم، و چگونه یک layout مشترک داشته باشیم.
+حالا، بیایید فایل‌های استاتیک را مدیریت کنیم. یک پوشه به نام static در دایرکتوری پروژه ایجاد کنید و یک پوشه به نام css ایجاد کنید. داخل پوشه css، main.css را ایجاد کنید. فایل main.css شما به layout.html متصل خواهد شد.
 
-You don't have to write the css file, copy and use it. Let's move on to deployment.
+نیازی نیست فایل css را بنویسید، آن را کپی کرده و استفاده کنید. بیایید به استقرار (deployment) برویم.
 
-### Deployment
+### استقرار (Deployment)
 
-#### Creating Heroku account
+#### ایجاد حساب کاربری Heroku
 
-Heroku provides a free deployment service for both front end and fullstack applications. Create an account on [heroku](https://www.heroku.com/) and install the heroku [CLI](https://devcenter.heroku.com/articles/heroku-cli) for you machine.
-After installing heroku write the following command
+Heroku یک سرویس استقرار رایگان برای اپلیکیشن‌های فرانت‌اند و فول‌استک ارائه می‌دهد. یک حساب کاربری در [heroku](https://www.heroku.com/) ایجاد کنید و [CLI](https://devcenter.heroku.com/articles/heroku-cli) heroku را برای ماشین خود نصب کنید.
+پس از نصب heroku دستور زیر را بنویسید
 
-#### Login to Heroku
+#### ورود به Heroku
 
 ```sh
 asabeneh@Asabeneh:~$ heroku login
 heroku: Press any key to open up the browser to login or q to exit:
 ```
 
-Let's see the result by clicking any key from the keyboard. When you press any key from you keyboard it will open the heroku login page and click the login page. Then you will local machine will be connected to the remote heroku server. If you are connected to remote server, you will see this.
+بیایید نتیجه را با فشردن هر کلیدی از کیبورد ببینیم. وقتی هر کلیدی را از کیبورد خود فشار دهید، صفحه ورود heroku باز می‌شود و روی صفحه ورود کلیک کنید. سپس ماشین محلی شما به سرور راه دور heroku متصل خواهد شد. اگر به سرور راه دور متصل شوید، این را خواهید دید.
 
 ```sh
 asabeneh@Asabeneh:~$ heroku login
@@ -516,9 +511,9 @@ Logged in as asabeneh@gmail.com
 asabeneh@Asabeneh:~$
 ```
 
-#### Create requirements and Procfile
+#### ایجاد requirements و Procfile
 
-Before we push our code to remote server, we need requirements
+قبل از اینکه کد خود را به سرور راه دور ارسال کنیم، به نیازمندی‌ها نیاز داریم
 
 - requirements.txt
 - Procfile
@@ -547,30 +542,30 @@ app.py            requirements.txt  templates/
 (env) asabeneh@Asabeneh:~/Desktop/python_for_web$
 ```
 
-The Procfile will have the command which run the application in the web server in our case on Heroku.
+فایل Procfile دستوری را خواهد داشت که اپلیکیشن را در وب سرور، در مورد ما در Heroku، اجرا می‌کند.
 
 ```sh
 web: python app.py
 ```
 
-#### Pushing project to heroku
+#### ارسال پروژه به heroku
 
-Now, it is ready to be deployed. Steps to deploy the application on heroku
+اکنون، آماده استقرار است. مراحل استقرار اپلیکیشن در heroku
 
 1. git init
 2. git add .
 3. git commit -m "commit message"
 4. heroku create 'name of the app as one word'
 5. git push heroku master
-6. heroku open(to launch the deployed application)
+6. heroku open (برای راه‌اندازی اپلیکیشن مستقر شده)
 
-After this step you will get an application like [this](http://thirdaysofpython-practice.herokuapp.com/)
+پس از این مرحله، شما یک اپلیکیشن مانند [این](http://thirdaysofpython-practice.herokuapp.com/) خواهید داشت.
 
-## Exercises: Day 26
+## تمرینات: روز ۲۶
 
-1. You will build [this application](https://thirtydaysofpython-v1-final.herokuapp.com/). Only the text analyser part is left
+1. شما [این اپلیکیشن](https://thirtydaysofpython-v1-final.herokuapp.com/) را خواهید ساخت. فقط بخش تحلیلگر متن باقی مانده است.
 
 
-🎉 CONGRATULATIONS ! 🎉
+🎉 تبریک می‌گویم ! 🎉
 
-[<< Day 25 ](../25_Day_Pandas/25_pandas.md) | [Day 27 >>](../27_Day_Python_with_mongodb/27_python_with_mongodb.md)
+[>> روز ۲۵ ](../25_Day_Pandas/25_pandas.md) | [روز ۲۷ <<](../27_Day_Python_with_mongodb/27_python_with_mongodb.md)
