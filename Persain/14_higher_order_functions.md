@@ -11,7 +11,7 @@
   <a href="https://www.linkedin.com/in/asabeneh/" target="_blank">Asabeneh Yetayeh</a><br>
   <small>ویرایش دوم: جولای ۲۰۲۱</small>
   </sub>
-</div>
+  
 </div>
 
 [<< روز ۱۳](./13_list_comprehension.md) | [روز ۱۵>>](./15_python_type_errors.md)
@@ -151,7 +151,8 @@ def uppercase_decorator(function):
 @uppercase_decorator
 def greeting():
     return 'Welcome to Python'
-print(greeting())   # WELCOME TO PYTHON```
+print(greeting())   # ['WELCOME', 'TO', 'PYTHON']
+```
 
 ### اعمال چند Decorator به یک تابع
 
@@ -196,7 +197,7 @@ def decorator_with_parameters(function):
 @decorator_with_parameters
 def print_full_name(first_name, last_name, country):
     print("I am {} {}. I love to teach.".format(
-        first_name, last_name, country))
+        first_name, last_name))
 
 print_full_name("Asabeneh", "Yetayeh",'Finland')
 ```
