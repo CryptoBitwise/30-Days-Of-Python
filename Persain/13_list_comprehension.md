@@ -13,7 +13,6 @@
 </sub>
 
 </div>
-</div>
 
 [<< روز ۱۲](./12_modules.md) | [روز ۱۴ >>](./14_higher_order_functions.md)
 
@@ -34,7 +33,7 @@ List comprehension در پایتون یک روش فشرده برای ایجاد 
 
 ```py
 # سینتکس
-[i for i in iterable if expression]
+[expression for i in iterable if condition]
 ```
 
 **مثال ۱:**
@@ -105,7 +104,7 @@ print(flattened_list)    # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ```py
 # سینتکس
-x = lambda param1, param2, param3: param1 + param2 + param2
+x = lambda param1, param2, param3: param1 + param2 + param3
 print(x(arg1, arg2, arg3))```
 
 **مثال:**
@@ -158,7 +157,7 @@ print(two_power_of_five)  # 32
 ۲. لیستِ لیست‌هایِ لیست‌های زیر را به یک لیست یک بعدی مسطح کنید:
 
    ```py
-   list_of_lists =[[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]]]
+   list_of_lists =[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
    output
    [1, 2, 3, 4, 5, 6, 7, 8, 9]
