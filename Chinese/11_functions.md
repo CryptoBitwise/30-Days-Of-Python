@@ -212,7 +212,7 @@ def print_fullname(firstname, lastname):
     space = ' '
     full_name = firstname  + space + lastname
     print(full_name)
-print(print_fullname(firstname = 'Asabeneh', lastname = 'Yetayeh'))
+print_fullname(firstname = 'Asabeneh', lastname = 'Yetayeh')
 
 def add_two_numbers (num1, num2):
     total = num1 + num2
